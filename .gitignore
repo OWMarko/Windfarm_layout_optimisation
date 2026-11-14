@@ -1,0 +1,15 @@
+# Generated runs and figures
+/resultats/
+**/resultats/
+/.cache/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+tmp/
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
