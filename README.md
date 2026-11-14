@@ -1,10 +1,8 @@
 # Wind farm layout optimization with AMON
 
-This is our Master's project for an advanced optimization course. We study a simple question: **where should we place wind turbines to produce more energy with a small number of simulator calls?** We also compare different numbers of turbines and look at the time needed to find a good layout.
+**Where should we place wind turbines to produce more energy with a small number of simulator calls?** We also compare different numbers of turbines and look at the time needed to find a good layout.
 
 We use AMON and PyWake to measure annual energy production (AEP). Our code builds valid layouts, improves them with several search methods, and saves the results as CSV files and plots.
-
-The figures below show measurements from our completed experiments. New runs create their own files in `resultats/`. This folder is ignored by Git; the small set of figures used in this README is kept in `figures/`.
 
 ## The problem
 
@@ -17,7 +15,7 @@ $$
 We want to solve
 
 $$
-\max_X \operatorname{AEP}(X)
+\max_X \mathrm{AEP}(X)
 \quad\text{subject to}\quad
 p_i\in\Omega,\qquad
 \|p_i-p_j\|\geq 2D\quad(i\neq j).
@@ -138,7 +136,7 @@ The recorded extension used 240 new PyWake calls because compatible results from
 We optimized the 30-turbine and 40-turbine layouts separately. For a fixed method and site, the average gain between these sizes is
 
 $$
-g_{30\to40}=\frac{\operatorname{AEP}_{40}-\operatorname{AEP}_{30}}{40-30}.
+g_{30\to40}=\frac{\mathrm{AEP}_{40}-\mathrm{AEP}_{30}}{40-30}.
 $$
 
 For Coffee-house followed by wake-guided exchanges, this is **1.146393 GWh/year per extra turbine** on instance 1 and **0.990995** on instance 2. This difference compares two optimized farms; it is not the output of each individual turbine added to the same farm.
@@ -191,7 +189,7 @@ python -m pip install -r requirements.txt
 python main.py --help
 ```
 
-AMON, its terrain files, wind data and turbine power curves are included. The program does not need a previous output folder. All commands below are run from the repository root. The command names are in French; the explanations here describe what each one does.
+AMON, its terrain files, wind data and turbine power curves are included. The program does not need a previous output folder. All commands below are run from the repository root.
 
 Running `python main.py` without arguments only shows the help. Choose a command to start work.
 
@@ -291,6 +289,9 @@ This does not make annealing, evolution or CMA-ES bad methods. We tested particu
 
 ## Credits
 
-AMON and its physical data were provided for the course and are included with the instructor's permission. PyWake computes the wind farm energy. CMA-ES uses the separate `cma` library; we do not claim to have implemented its internal solver.
+[AMON](https://github.com/josephinegobert/AMON) and its physical data were provided for the course and are included with the prof's permission. PyWake computes the wind farm energy. CMA-ES uses the separate `cma` library; we do not claim to have implemented its internal solver.
 
-The greedy candidate construction and the CMA-ES adapter were adapted from an earlier student implementation. The inherited penalty values are numerical conventions, not physical costs. The placement, search and analysis modules in this repository bring these components together with the methods developed and compared in our project. No new license is assigned to the third-party code by this README.
+This project was developed as part of the *Advanced Optimization* course taught by [Régis Duvigneau](https://cv.hal.science/regis-duvigneau) and [Mickaël Binois](https://sites.google.com/site/mickaelbinoishomepage/) at Université Côte d’Azur (MAM5 / Master 2 IM-INUM).
+
+This project was developed in collaboration with Akhmed Moutaliev (@tamad01).
+
