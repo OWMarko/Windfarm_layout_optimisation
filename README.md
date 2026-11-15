@@ -87,6 +87,8 @@ The score is cheap enough to examine many changes before asking AMON to evaluate
 
 This proxy gives the same pair score for opposite wind directions. It is simpler than the actual wake model. A lower score can still give a lower AEP, so the final choice always uses AMON's AEP.
 
+The Gaussian crosswind profile and linear wake expansion used in our heuristic wake score are based on ideas described by Bastankhah and Porté-Agel (2014), [*A new analytical model for wind-turbine wakes*](https://www.sciencedirect.com/science/article/abs/pii/S0960148114000317). The exponential decay with downstream distance is a separate heuristic choice in this project.
+
 ## Comparison at the same evaluation budget
 
 We compare the two construction families and five refinements on instances 1 and 2, with 30 and 40 turbines. This gives 40 search branches.
